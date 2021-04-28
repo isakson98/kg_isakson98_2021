@@ -1,6 +1,6 @@
 
 /**
- * 
+ * Verifying user input to avoid errors in Convert_Sequence_Integers() function
  * @returns all user given command line arguments or exits if inputs are not integers
  */
 function Verify_and_Retrieve_CLI_Input() {
@@ -23,7 +23,7 @@ function Verify_and_Retrieve_CLI_Input() {
 }
 
 /**
- * 
+ * used in Convert_Sequence_Integers to convert intgers into phoenetic equivalent
  * @returns  dictionary of digit : spelled out version of the digit
  */
 function Init_Digit_Map() {
@@ -41,7 +41,8 @@ function Init_Digit_Map() {
 }
 
 /**
- * 
+ * main function of the program -> iterating over integers in input array 
+ * and then within digits of these integers
  * @param {*} a_array_integers (array of strings that are input integers)
  * @returns ConvertedArray
  */
@@ -62,11 +63,15 @@ function Convert_Sequence_Integers(a_array_integers) {
             CurrentPhoeneticElement = CurrentPhoeneticElement.concat(OneDigit)
         }
         ConvertedArray.push(CurrentPhoeneticElement)
-        FinalString = FinalString.concat(CurrentPhoeneticElement, ",")
     }
 
+    // for the print statement
+    for (i=0; i < ConvertedArray.length; i++) {
+        FinalString = FinalString.concat(ConvertedArray[i], ",")
+    }
     FinalString = FinalString.substring(0, FinalString.length - 1)
     console.log(FinalString)
+
     return ConvertedArray
 }
 
